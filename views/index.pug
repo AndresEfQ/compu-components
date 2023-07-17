@@ -1,6 +1,10 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  div
+
+  div(class='container-fluid home')
+    img(class='img-fluid' src='./images/index.jpg', alt='Computer')
+    p(class='img-copyright') Photo by: 
+      a(href='https://www.pexels.com/photo/computer-system-unit-component-2225616/') Martin Lopez
+
+    p(class='hero') Create, Read, Update or Delete any Brand, Category or Component you like

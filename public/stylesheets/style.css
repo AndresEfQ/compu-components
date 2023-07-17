@@ -1,8 +1,85 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+.navbar {
+  padding: 2rem;
+  background-color: #f5f3f4;
 }
 
-a {
-  color: #00B7FF;
+.navbar-collapse {
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand i {
+  margin-right: 20px;
+  font-size: 2rem;
+}
+
+.home {
+  max-height: 85vh;
+  overflow-y: hidden;
+}
+
+.img-copyright {
+  color: white;
+  position: absolute;
+  bottom: 40px;
+  right: 25px;
+}
+
+.img-copyright a {
+  color: white;
+  text-shadow: 0 0 5px black;
+}
+
+.img-copyright a:hover {
+  color: gray;
+  
+}
+
+.hero {
+  color: white;
+  text-shadow: 0 0 5px black;
+  font-weight: bold;
+  font-size: 3.5rem;
+  line-height: 6.5rem;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.footer {
+  position: absolute;
+  bottom: 0;
+}
+
+.footer-content {
+  background: rgb(4,10,19);
+  background: linear-gradient(0deg, rgba(4,10,19,1) 63%, rgba(25,28,31,1) 100%);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  height: 50px;
+  gap: 1rem;
+}
+
+.footer a {
+  color: white;
+  gap: 2rem;
+}
+
+.footer a:hover {
+  color: gray;
+}
+
+.footer i {
+  margin-left: 1rem;
 }
