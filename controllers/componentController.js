@@ -4,7 +4,7 @@ const expressValidator = require('express-validator');
 
 // Homepage
 exports.index = (req, res, next) => {
-  res.send('Homepage not implemented');
+  res.render('index.pug');
 };
 
 // Create component GET

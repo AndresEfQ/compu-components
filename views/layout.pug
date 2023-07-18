@@ -24,13 +24,18 @@ html(lang='en')
         div(class="collapse navbar-collapse", id="navbar-toggler")
           ul(class="navbar-nav d-flex align-items-center")
             li(class="nav-item")
-              a(class="nav-link me-4", aria-current="page", href="#") Brands
+              a(class="nav-link me-4", aria-current="page", href="/catalog/brands") Brands
             li(class="nav-item")
-              a(class="nav-link me-4", aria-current="page", href="#") Categories
+              a(class="nav-link me-4", aria-current="page", href="/catalog/categories") Categories
             li(class="nav-item")
-              a(class="nav-link", aria-current="page", href="#") Components
+              a(class="nav-link", aria-current="page", href="/catalog/components") Components
   
-    block content
+    div(class='container-fluid home')
+      img(class='img-fluid' src='/images/index.jpg', alt='Computer')
+      p(class='img-copyright') Photo by: 
+        a(href='https://www.pexels.com/photo/computer-system-unit-component-2225616/') Martin Lopez
+
+      block content
 
     div(class='container-fluid footer') 
       div(class='footer-content') Copyright © 

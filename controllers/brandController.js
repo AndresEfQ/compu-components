@@ -40,5 +40,5 @@ exports.brand_detail = (req, res, next) => {
 // Brands list
 
 exports.brand_list = (req, res, next) => {
-  res.send('brand list not implemented')
+  res.render('brand_list');
 }
