@@ -1,6 +1,8 @@
 const express = require('express');
-const asyncHandler = require('async-handler');
+const asyncHandler = require('express-async-handler')
 const expressValidator = require('express-validator');
+
+const Brand = require('../models/brand');
 
 // Create brand GET
 exports.brand_create_get = (req, res, next) => {
@@ -39,6 +41,8 @@ exports.brand_detail = (req, res, next) => {
 
 // Brands list
 
-exports.brand_list = (req, res, next) => {
-  res.render('brand_list');
-}
+exports.brand_list = asyncHandler(async(req, res, next) => {
+  const allBrands = await Brand.find().exec();
+  // const allBrands = {};
+  res.render('lists', {title: 'BRANDS', list: allBrands});
+})
