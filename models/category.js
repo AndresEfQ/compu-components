@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const CategorySchema = new Schema({
   name: {type: String, required: true},
   description: {type: String, required: true},
+  imgUrl: {type: String},
 });
 
 // Virtual for category's url

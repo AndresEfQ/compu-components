@@ -2,14 +2,22 @@ extends layout
 
 block content 
 
-  div(class='container overlay')
+  div(class='container')
     h1 #{title}
 
-    div
+    div(class="list")
       ul(class="list-group")
-        each element in list 
-          li(class="list-group-item d-flex justify-content-between align-items-center")  #{element.name}
-            span(class="badge badge-primary badge-pill") #{element.quantiry}
-
+        each item in list 
+          li(class="list-group-item d-flex justify-content-between align-items-center")  
+              img(src=item.element.imgUrl alt=item.element.name class="img-thumbnail list-img")
+              div(class="list-item-info")
+                p #{item.element.name}
+                  span(class="badge text-bg-secondary ms-4") #{item.quantity}
+                P #{item.element.description}
+              button(class="btn btn-primary") Update 
+                <i class="bi bi-pencil"></i>
+              button(class="btn btn-primary") Delete 
+                <i class="bi bi-trash3"></i>
+            
         else 
           p There are no #{title}
