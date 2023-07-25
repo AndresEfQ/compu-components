@@ -65,7 +65,6 @@
 
 .list-item-info {
   width: 60%;
-  /* background-color: transparent; */
 }
 
 .list-item-info p:first-child {
@@ -82,9 +81,10 @@
   background-color: rgba(255,255,255,0.9);
 }
 
-/* .list-img {
-  background-color: transparent;
-} */
+.list-add-element {
+  position: absolute;
+  right: 40px;
+}
 
 .footer {
   position: absolute;

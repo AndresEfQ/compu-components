@@ -1,6 +1,9 @@
 const express = require('express');
-const asyncHandler = require('async-handler');
+const asyncHandler = require('express-async-handler');
 const expressValidator = require('express-validator');
+
+const Category = require('../models/category');
+const Component = require('../models/component');
 
 // Create category GET
 exports.category_create_get = (req, res, next) => {
@@ -39,6 +42,20 @@ exports.category_detail = (req, res, next) => {
 
 // Categories list
 
-exports.category_list = (req, res, next) => {
-  res.send('Categories list not implemented')
-}
+exports.category_list = asyncHandler(async(req, res, next) => {
+  const allCategories = await Category.find().exec();
+  console.log(allCategories);
+  const count = await Promise.all(allCategories.map(async(category) => {
+    const num = await Component.countDocuments({category: category.id})
+    return num;
+  }));
+  const countedCategories = [];
+  for (let i = 0; i < allCategories.length; i++) {
+    countedCategories.push({
+      element: allCategories[i], 
+      quantity: count[i],
+    })
+  }
+  console.log(countedCategories);
+  res.render('lists', {title: 'CATEGORIES', list: countedCategories, singleTitle: "Category"});
+});

@@ -3,9 +3,10 @@ extends layout
 block content 
 
   div(class='container')
-    h1 #{title}
-    button(class=btn btn-primary list-add-element)
-      <i class="bi bi-plus-square"></i>
+    div(class="list-header d-flex justify-content-center align-items-center")
+      h1(class="list-title") #{title}
+      button(type="button" class="btn btn-secondary list-add-element") Add #{singleTitle}
+        <i class="bi bi-plus-square ms-2"></i>
 
     div(class="list")
       ul(class="list-group")
@@ -13,8 +14,8 @@ block content
           li(class="list-group-item d-flex justify-content-between align-items-center")  
               img(src=item.element.imgUrl alt=item.element.name class="img-thumbnail list-img")
               div(class="list-item-info")
-                p #{item.element.name}
-                  span(class="badge text-bg-secondary ms-4") #{item.quantity}
+                p(class="d-flex justify-content-between") #{item.element.name}
+                  span(class="badge text-bg-secondary me-4") #{item.quantity}
                 P #{item.element.description}
               button(class="btn btn-primary") Update 
                 <i class="bi bi-pencil"></i>
