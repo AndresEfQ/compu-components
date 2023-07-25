@@ -1,6 +1,8 @@
 const express = require('express');
-const asyncHandler = require('async-handler');
+const asyncHandler = require('express-async-handler');
 const expressValidator = require('express-validator');
+
+const Component = require('../models/component');
 
 // Homepage
 exports.index = (req, res, next) => {
@@ -43,7 +45,14 @@ exports.component_detail = (req, res, next) => {
 };
 
 // Components list
-
-exports.component_list = (req, res, next) => {
-  res.send('Component list not implemented')
-}
+// Must wrap the components in wrappedComponents to use the same view as brands and categories
+exports.component_list = asyncHandler(async(req, res, next) => {
+  const allComponents = await Component.find().exec();
+  const wrappedComponents = [];
+  for (let i = 0; i < allComponents.length; i++) {
+    wrappedComponents.push({
+      element: allComponents[i], 
+    })
+  }
+  res.render('lists', {title: 'COMPONENTS', list: wrappedComponents, singleTitle: "Component"});
+});
