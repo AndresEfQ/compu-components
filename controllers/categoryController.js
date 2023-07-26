@@ -36,12 +36,12 @@ exports.category_delete_post = (req, res, next) => {
 };
 
 // Category detail
-exports.category_detail = (req, res, next) => {
-  res.send(`Category detail not implemented for ${req.params.id}`);
-};
+exports.category_detail = asyncHandler(async(req, res, next) => {
+  const categoryComponents = await Component.find({category: req.params.id}).exec();
+  res.render('lists', {title: req.params.id.toUpperCase(), list: categoryComponents, singleTitle: "Component"});
+});
 
 // Categories list
-
 exports.category_list = asyncHandler(async(req, res, next) => {
   const allCategories = await Category.find().exec();
   console.log(allCategories);
