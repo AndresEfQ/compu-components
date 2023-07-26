@@ -247,7 +247,7 @@ const components = [
     brand: brands["Gigabyte"],
     description: "GIGABYTE B650 AORUS Elite AX (AM5/ LGA 1718/ AMD B650/ ATX/ 5-Year Warranty/ DDR5/ M.2/ PCIe 5.0/ USB 3.2 Gen2X2 Type-C/WiFi 6E/ 2.5GbE LAN/Q-Flash Plus/EZ-Latch/Gaming Motherboard)",
     price: 214.99,
-    imgUrl: ""
+    imgUrl: "/images/B650AORUSElite.jpg"
   },
   {
     name: "GIGABYTE Z790 AORUS Master",
@@ -255,7 +255,7 @@ const components = [
     brand: brands["Gigabyte"],
     description: "GIGABYTE Z790 AORUS Master (LGA 1700/ Intel Z790/ EATX/ DDR5/ 5* M.2/ PCIe 5.0/ USB 3.2 Gen2X2 Type-C/Intel WiFi 6E/ Marvell AQtion 10GbE LAN/Q-Flash Plus/EZ-Latch Plus/Gaming Motherboard)",
     price: 466.03,
-    imgUrl: ""
+    imgUrl: "/images/Z790AORUSMaster.jpg"
   },
   {
     name: "GIGABYTE GeForce RTX™ 2070 GAMING WINDFORCE 3X",
@@ -263,7 +263,7 @@ const components = [
     brand: brands["Gigabyte"],
     description: "Powered by GeForce RTX™ 2070, Integrated with 8GB GDDR6 256-bit memory interface WINDFORCE 3X Cooling System with alternate spinning fans RGB Fusion 2.0 Metal Back Plate",
     price: 319.99,
-    imgUrl: ""
+    imgUrl: "/images/RTX2070Gigabyte.jpg"
   },
   {
     name: "GIGABYTE GeForce RTX 4070 AERO OC 12G",
@@ -271,7 +271,7 @@ const components = [
     brand: brands["Gigabyte"],
     description: "Gigabyte GeForce RTX 4070 AERO OC 12G Graphics Card, 3X WINDFORCE Fans, 12GB 192-bit GDDR6X, GV-N4070AERO OC-12GD Video Card",
     price: 659.99,
-    imgUrl: ""
+    imgUrl: "/images/4070aero.jpg"
   },
   {
     name: "GIGABYTE GeForce RTX 3060 Gaming OC 12G",
@@ -279,7 +279,7 @@ const components = [
     brand: brands["Gigabyte"],
     description: "GIGABYTE GeForce RTX 3060 Gaming OC 12G (REV2.0) Graphics Card, 3X WINDFORCE Fans, 12GB 192-bit GDDR6, GV-N3060GAMING OC-12GD Video Card",
     price: 319.99,
-    imgUrl: ""
+    imgUrl: "/images/RTX3060Gaming.jpg"
   },
   {
     name: "GIGABYTE GeForce RTX 3070 Gaming OC 8G",
@@ -287,7 +287,7 @@ const components = [
     brand: brands["Gigabyte"],
     description: "GIGABYTE GeForce RTX 3070 Gaming OC 8G (REV2.0) Graphics Card, 3X WINDFORCE Fans, LHR, 8GB 256-bit GDDR6, GV-N3070GAMING OC-8GD Video Card",
     price: 499.99,
-    imgUrl: ""
+    imgUrl: "/images/RTX3070Gaming.jpg"
   },
   {
     name: "AMD Ryzen 9 5900X",
@@ -295,7 +295,7 @@ const components = [
     brand: brands["AMD"],
     description: "AMD Ryzen 9 5900X 12-core, 24-Thread Unlocked Desktop Processor",
     price: 297.00,
-    imgUrl: ""
+    imgUrl: "/images/Ryzen95900X.jpg"
   },
   {
     name: "AMD Ryzen 5 5600X",
@@ -303,7 +303,7 @@ const components = [
     brand: brands["AMD"],
     description: "AMD Ryzen 5 5600X 6-core, 12-Thread Unlocked Desktop Processor with Wraith Stealth Cooler",
     price: 297.00,
-    imgUrl: ""
+    imgUrl: "/images/AMDRyzen55600X.jpg"
   },
   {
     name: "AMD Ryzen 7 5800X",
@@ -311,7 +311,7 @@ const components = [
     brand: brands["AMD"],
     description: "AMD Ryzen 7 5800X 8-core, 16-Thread Unlocked Desktop Processor",
     price: 229.00,
-    imgUrl: ""
+    imgUrl: "/images/AMDRyzen75800X.jpg"
   },
   {
     name: "AMD Ryzen 7 5700G",
@@ -319,7 +319,7 @@ const components = [
     brand: brands["AMD"],
     description: "AMD Ryzen 7 5700G 8-Core, 16-Thread Unlocked Desktop Processor with Radeon Graphics",
     price: 177.10,
-    imgUrl: ""
+    imgUrl: "/images/AMDRyzen75700G.jpg"
   },
   {
     name: "AMD Ryzen 9 7900X",
@@ -327,7 +327,7 @@ const components = [
     brand: brands["AMD"],
     description: "AMD Ryzen™ 9 7900X 12-Core, 24-Thread Unlocked Desktop Processor",
     price: 425.00,
-    imgUrl: ""
+    imgUrl: "/images/AMDRyzen97900X.jpg"
   },
   {
     name: "Intel Core i5-12600K",
@@ -335,7 +335,7 @@ const components = [
     brand: brands["Intel"],
     description: "Intel Core i5-12600K Desktop Processor with Integrated Graphics and 10 (6P+4E) Cores up to 4.9 GHz Unlocked LGA1700 600 Series Chipset 125W",
     price: 196.99,
-    imgUrl: ""
+    imgUrl: "/images/IntelCorei5-12600K.jpg"
   },
   {
     name: "Intel Core i7-12700K",
@@ -343,7 +343,7 @@ const components = [
     brand: brands["Intel"],
     description: "Intel Core i7-12700K Gaming Desktop Processor with Integrated Graphics and 12 (8P+4E) Cores up to 5.0 GHz Unlocked  LGA1700 600 Series Chipset 125W",
     price: 252.73,
-    imgUrl: ""
+    imgUrl: "/images/IntelCorei7-12700K.jpg"
   },
   {
     name: "Intel Core i9-13900K",
@@ -351,7 +351,7 @@ const components = [
     brand: brands["Intel"],
     description: "Intel Core i9-13900K (Latest Gen) Gaming Desktop Processor 24 cores (8 P-cores + 16 E-cores) with Integrated Graphics - Unlocked",
     price: 425.00,
-    imgUrl: ""
+    imgUrl: "/images/IntelCorei9-13900K.jpg"
   },
   {
     name: "Intel Core i7-12700K",
@@ -359,7 +359,7 @@ const components = [
     brand: brands["Intel"],
     description: "Intel Core i7-12700K Gaming Desktop Processor with Integrated Graphics and 12 (8P+4E) Cores up to 5.0 GHz Unlocked  LGA1700 600 Series Chipset 125W",
     price: 252.73,
-    imgUrl: ""
+    imgUrl: "/images/IntelCorei7-12700K.jpg"
   },
   {
     name: "MSI Gaming Radeon RX 6750 XT",
@@ -367,7 +367,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI Gaming Radeon RX 6750 XT 192-bit 12GB GDDR6 Boost Clock 2600MHz Dual Torx 3.0 Fans DP/HDMI FreeSync DirectX 12 VR",
     price: 379.99,
-    imgUrl: ""
+    imgUrl: "/images/MSIGamingRadeonRX6750XT.jpg"
   },
   {
     name: "MSI Gaming GeForce RTX 3060 Ti",
@@ -375,7 +375,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI Gaming GeForce RTX 3060 Ti LHR 8GB GDRR6X, 256-Bit, HDMI/DP, Nvlink, Torx Fan 3, Ampere Architecture OC Graphics Card (RTX)",
     price: 339.99,
-    imgUrl: ""
+    imgUrl: "/images/MSIGamingGeForceRTX3060Ti.jpg"
   },
   {
     name: "MSI Gaming GeForce RTX 4070 Ti",
@@ -383,7 +383,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI Gaming GeForce RTX 4070 Ti 12GB GDRR6X 192-Bit HDMI/DP Nvlink Tri-Frozr 3 Ada Lovelace Architecture Graphics Card (RTX 4070)",
     price: 479.99,
-    imgUrl: ""
+    imgUrl: "/images/MSIGamingGeForceRTX4070Ti.jpg"
   },
   {
     name: "MSI Gaming GeForce RTX 4090",
@@ -391,7 +391,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI Gaming GeForce RTX 4090 24GB GDRR6X 384-Bit HDMI/DP Nvlink Tri-Frozr 3 Ada Lovelace Architecture OC Graphics Card (RTX 4090 SUPRIM X)",
     price: 1749.99,
-    imgUrl: ""
+    imgUrl: "/images/MSIGamingGeForceRTX4090.jpg"
   },
   {
     name: "MSI Gaming GeForce RTX 3060",
@@ -399,7 +399,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI Gaming GeForce RTX 3060 12GB 15 Gbps GDRR6 192-Bit HDMI/DP PCIe 4 Torx Triple Fan Ampere OC Graphics Card (RTX 3060 Ventus 3X)",
     price: 279.99,
-    imgUrl: ""
+    imgUrl: "/images/MSIGamingGeForceRTX3060.jpg"
   },
   {
     name: "MSI MAG B660M Mortar",
@@ -407,7 +407,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI MAG B660M Mortar WiFi DDR4 Gaming Motherboard (mATX, 12th Gen Intel Core, LGA 1700 Socket, DDR4, PCIe 4, 2.5G LAN, M.2 Slots, Wi-Fi 6)",
     price: 179.99,
-    imgUrl: ""
+    imgUrl: "/images/MSIMAGB660MMortar.jpg"
   },
   {
     name: "MSI PRO B760M-P DDR4",
@@ -415,7 +415,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI PRO B760M-P DDR4 ProSeries Motherboard (Supports 12th/13th Gen Intel Processors, LGA 1700, DDR4, PCIe 4.0, M.2, Gbps LAN, USB",
     price: 107.74,
-    imgUrl: ""
+    imgUrl: "/images/MSIPROB760M-PDDR4.jpg"
   },
   {
     name: "MSI MPG X570S Carbon",
@@ -423,7 +423,7 @@ const components = [
     brand: brands["MSI"],
     description: "MSI MPG X570S Carbon EK X Gaming Motherboard (ATX, AMD, Socket AM4. DDR4, PCIe 4, CFX, M.2 Slots, Wi-Fi 6E)",
     price: 389.99,
-    imgUrl: ""
+    imgUrl: "/images/MSIMPGX570SCarbon.jpg"
   },
   {
     name: "EVGA CLC 360mm All-in-One LCD CPU Liquid Cooler",
@@ -431,7 +431,7 @@ const components = [
     brand: brands["EVGA"],
     description: "EVGA CLC 360mm All-in-One LCD CPU Liquid Cooler, 3X 120mm PWM ARGB Fans, Intel, AMD, 5 YR Warranty, 400-HY-CX36-V1",
     price: 65.00,
-    imgUrl: ""
+    imgUrl: "/images/EVGACLC360mmAll-in-OneLCDCPULiquidCooler.jpg"
   },
   {
     name: "EVGA SuperNOVA 1000 GT, 80 Plus Gold 1000W",
@@ -439,7 +439,7 @@ const components = [
     brand: brands["EVGA"],
     description: "EVGA SuperNOVA 1000 GT, 80 Plus Gold 1000W, Fully Modular, Eco Mode with FDB Fan, 10 Year Warranty, Includes Power ON Self Tester, Compact 150mm Size, Power Supply 220-GT-1000-X1",
     price: 389.99,
-    imgUrl: ""
+    imgUrl: "/images/EVGASuperNOVA1000GT80 PlusGold1000W.jpg"
   },
   {
     name: "EVGA Supernova 1600 G+, 80+ Gold 1600W",
@@ -447,7 +447,7 @@ const components = [
     brand: brands["EVGA"],
     description: "EVGA Supernova 1600 G+, 80+ Gold 1600W, Fully Modular, 10 Year Warranty, Includes Free Power On Self Tester, Power Supply 220-GP-1600-X1",
     price: 249.00,
-    imgUrl: ""
+    imgUrl: "/images/EVGASupernova1600G+80+Gold1600W.jpg"
   },
   {
     name: "EVGA Geforce RTX 3060 Xc Gaming",
@@ -455,7 +455,7 @@ const components = [
     brand: brands["EVGA"],
     description: "EVGA Geforce RTX 3060 Xc Gaming (12Gb Gddr6/Pci Express 4.0/1882Mhz/15000Mhz}, 12G-P5-3657-KR",
     price: 476.09,
-    imgUrl: ""
+    imgUrl: "/images/EVGAGeforceRTX3060XcGaming.jpg"
   },
   {
     name: "EVGA GeForce RTX 3090 Ti",
@@ -463,7 +463,7 @@ const components = [
     brand: brands["EVGA"],
     description: "EVGA GeForce RTX 3090 Ti FTW3 Ultra Gaming, 24G-P5-4985-KR, 24GB GDDR6X, iCX3, ARGB LED, Backplate, Free eLeash",
     price: 1949.00,
-    imgUrl: ""
+    imgUrl: "/images/EVGAGeForceRTX3090Ti.jpg"
   },
   {
     name: "ZOTAC Gaming GeForce RTX 3060",
@@ -471,7 +471,7 @@ const components = [
     brand: brands["Zotac"],
     description: "ZOTAC Gaming GeForce RTX 3060 Twin Edge OC 12GB GDDR6 192-bit 15 Gbps PCIE 4.0 Graphics Card, IceStorm 2.0 Cooling, Active Fan Control, Freeze Fan Stop ZT-A30600H-10M",
     price: 322.07,
-    imgUrl: ""
+    imgUrl: "/images/ZOTACGamingGeForceRTX3060.jpg"
   },
   {
     name: "ZOTAC GeForce GTX 1660 Super",
@@ -479,7 +479,7 @@ const components = [
     brand: brands["Zotac"],
     description: "ZOTAC GeForce GTX 1660 Super 6GB GDDR6 192-bit Gaming Graphics Card, Super Compact, ZT-T16620F-10L",
     price: 259.45,
-    imgUrl: ""
+    imgUrl: "/images/ZOTACGeForceGTX1660Super.jpg"
   },
   {
     name: "ZOTAC Gaming GeForce RTX 4080",
@@ -487,23 +487,23 @@ const components = [
     brand: brands["Zotac"],
     description: "ZOTAC Gaming GeForce RTX 4080 16GB AMP Extreme AIRO GDDR6X 256-bit 22.4 Gbps PCIE 4.0 Graphics Card, IceStorm 2.0 Advanced Cooling, Spectra 2.0 RGB Lighting, ZT-D40810B-10P",
     price: 1333.64,
-    imgUrl: ""
+    imgUrl: "/images/ZOTACGamingGeForceRTX4080.jpg"
   },
   {
-    name: "PNY XLR8 Gaming 16GB (2x8GB) DDR4 DRAM 3200MHz",
+    name: "PNY XLR8 Gaming 16GB",
     category: categories["Memory"],
     brand: brands["PNY"],
     description: "PNY XLR8 Gaming 16GB (2x8GB) DDR4 DRAM 3200MHz (PC4-25600) CL16 1.35V Dual Channel Desktop (DIMM) Memory Kit - MD16GK2D4320016AXR",
     price: 45.32,
-    imgUrl: ""
+    imgUrl: "/images/PNYXLR8Gaming16GB(2x8GB)DDR4DRAM3200MHz.jpg"
   },
   {
-    name: "PNY EliteX-PRO 2TB USB 3.2 Gen 2x2 Type-C Portable Solid State Drive (SSD)",
+    name: "PNY EliteX-PRO 2TB SSD",
     category: categories["Storage"],
     brand: brands["PNY"],
     description: "PNY EliteX-PRO 2TB USB 3.2 Gen 2x2 Type-C Portable Solid State Drive (SSD) - (PSD0CS2260-2TB-RB)",
     price: 133.64,
-    imgUrl: ""
+    imgUrl: "/images/PNYEliteX-PRO2TBUSB3.2Gen2x2Type-CPortableSolidStateDrive(SSD).jpg"
   },
   {
     name: "PNY XLR8 CS3140 1TB M.2 NVMe",
@@ -511,15 +511,15 @@ const components = [
     brand: brands["PNY"],
     description: "PNY XLR8 CS3140 1TB M.2 NVMe Gen4 x4 Internal Solid State Drive (SSD) - M280CS3140-1TB-RB",
     price: 153.64,
-    imgUrl: ""
+    imgUrl: "/images/PNYXLR8CS31401TBM.2NVMe.jpg"
   },
   {
-    name: "PNY Performance 8GB DDR4 DRAM 3200MHz",
+    name: "PNY Performance 8GB",
     category: categories["Memory"],
     brand: brands["PNY"],
     description: "PNY Performance 8GB DDR4 DRAM 3200MHz (PC4-25600) CL22 (Compatible with 2933MHz, 2666MHz, 2400MHz or 2133MHz) 1.2V Notebook/Laptop (SODIMM) Computer Memory Kit - MN8GSD43200-TB",
     price: 16.99,
-    imgUrl: ""
+    imgUrl: "/images/PNYPerformance8GBDDR4DRAM3200MHz.jpg"
   },
   {
     name: "PowerColor Fighter AMD Radeon RX 6700 XT",
@@ -527,7 +527,7 @@ const components = [
     brand: brands["PowerColor"],
     description: "PowerColor Fighter AMD Radeon RX 6700 XT Gaming Graphics Card with 12GB GDDR6 Memory, Powered by AMD RDNA 2, Raytracing, PCI Express 4.0, HDMI 2.1, AMD Infinity Cache",
     price: 349.99,
-    imgUrl: ""
+    imgUrl: "/images/PowerColorFighterAMDRadeonRX6700XT.jpg"
   },
   {
     name: "PowerColor AMD Radeon RX 6500 XT",
@@ -535,7 +535,7 @@ const components = [
     brand: brands["PowerColor"],
     description: "PowerColor AMD Radeon RX 6500 XT ITX Gaming Graphics Card with 4GB GDDR6 Memory",
     price: 156.99,
-    imgUrl: ""
+    imgUrl: "/images/PowerColorAMDRadeonRX6500XT.jpg"
   },
   {
     name: "PowerColor AMD Radeon RX 7900 XT Graphics Card",
@@ -543,31 +543,31 @@ const components = [
     brand: brands["PowerColor"],
     description: "PowerColor AMD Radeon RX 7900 XT Graphics Card",
     price: 216.99,
-    imgUrl: ""
+    imgUrl: "/images/PowerColorAMDRadeonRX7900XTGraphicsCard.jpg"
   },
   {
-    name: "Sapphire 11322-01-40G Nitro+ AMD Radeon RX 7900 XTX",
+    name: "Sapphire AMD Radeon RX 7900 XTX",
     category: categories["Video Card"],
     brand: brands["Sapphire"],
     description: "Sapphire 11322-01-40G Nitro+ AMD Radeon RX 7900 XTX Vapor-X Gaming Graphics Card with 24GB GDDR6, AMD RDNA 3",
     price: 1049.99,
-    imgUrl: ""
+    imgUrl: "/images/Sapphire11322-01-40GNitro+AMDRadeonRX7900XTX.jpg"
   },
   {
-    name: "Sapphire 11308-03-20G Nitro+ AMD Radeon RX 6900 XT",
+    name: "Sapphire AMD Radeon RX 6900 XT",
     category: categories["Video Card"],
     brand: brands["Sapphire"],
     description: "Sapphire 11308-03-20G Nitro+ AMD Radeon RX 6900 XT Special Edition PCIe 4.0 Gaming Graphics Card with 16GB GDDR6",
     price: 1499.00,
-    imgUrl: ""
+    imgUrl: "/images/Sapphire11308-03-20GNitro+AMDRadeonRX6900XT.jpg"
   },
   {
-    name: "Sapphire 11310-04-20G Pulse AMD Radeon RX 6600",
+    name: "Sapphire AMD Radeon RX 6600",
     category: categories["Video Card"],
     brand: brands["Sapphire"],
     description: "Sapphire 11310-04-20G Pulse AMD Radeon RX 6600 LITE Edition HDMI DP Gaming Graphics Card with 8GB GDDR6, AMD RDNA 2",
     price: 280.99,
-    imgUrl: ""
+    imgUrl: "/images/Sapphire11310-04-20GPulseAMDRadeonRX6600.jpg"
   },
   {
     name: "ASRock X670E Taichi Carrara",
@@ -575,15 +575,15 @@ const components = [
     brand: brands["ASRock"],
     description: "ASRock X670E Taichi Carrara Support AMD AM5 RYZEN 7000 Series Processors Motherboard",
     price: 573.03,
-    imgUrl: ""
+    imgUrl: "/images/ASRockX670ETaichiCarrara.jpg"
   },
   {
-    name: "srock Z490 Phantom Gaming ITX/TB3",
+    name: "ASrock Z490 Phantom Gaming ITX/TB3",
     category: categories["Motherboard"],
     brand: brands["ASRock"],
     description: "Asrock Z490 Phantom Gaming ITX/TB3 Supports 10 th Gen and Future Generation Intel Core Motherboard Processors (Socket 1200}, Model Number: Z490 Phantom Gaming-ITX/TB3",
     price: 159.99,
-    imgUrl: ""
+    imgUrl: "/images/ASrockZ490PhantomGamingITXTB3.jpg"
   },
   {
     name: "ASRock A520M-ITX/AC",
@@ -591,7 +591,7 @@ const components = [
     brand: brands["ASRock"],
     description: "ASRock A520M-ITX/AC Supports 3rd Gen AMD AM4 Ryzen™ / Future AMD Ryzen™ Processors (3000 and 4000 Series Processors) Motherboard",
     price: 107.73,
-    imgUrl: ""
+    imgUrl: "/images/ASRockA520M-ITXAC.jpg"
   },
   {
     name: "Nvidia GeForce GTX 1070",
@@ -599,7 +599,7 @@ const components = [
     brand: brands["Nvidia"],
     description: "Nvidia GeForce GTX 1070 Founders Edition - 900-1G411-2520-001",
     price: 269.99,
-    imgUrl: ""
+    imgUrl: "/images/NvidiaGeForceGTX1070.jpg"
   },
   {
     name: "Nvidia GeForce GTX 1080",
@@ -607,7 +607,7 @@ const components = [
     brand: brands["Nvidia"],
     description: "Nvidia GeForce GTX 1080 8GB FE Founders Edition GDDR5X Video Graphics Card",
     price: 319.99,
-    imgUrl: ""
+    imgUrl: "/images/NvidiaGeForceGTX1080.jpg"
   },
   {
     name: "NVIDIA GeForce RTX 4070",
@@ -615,7 +615,7 @@ const components = [
     brand: brands["Nvidia"],
     description: "NVIDIA GeForce RTX 4070 Founder's Edition (FE) Graphics Card - Titanium and Black",
     price: 269.99,
-    imgUrl: ""
+    imgUrl: "/images/NVIDIAGeForceRTX4070.jpg"
   }, 
 ];
 
@@ -630,9 +630,9 @@ async function main() {
   console.log("Debug: About to connect");
   await mongoose.connect(mongoDB);
   console.log("Debug: Should be connected?");
-  await updateCategories();
+  // await updateCategories();
   // await updateBrands();
-  // await createComponents();
+  await updateComponents();
   console.log("Debug: Closing mongoose");
   mongoose.connection.close();
 }
@@ -651,7 +651,7 @@ async function brandUpdate(brand) {
 }
 
 async function componentUpdate(component) {
-  const oldComponent = await Component.find({name: component.name}).exec();
+  const oldComponent = await Component.findOne({name: component.name}).exec();
   await Component.findByIdAndUpdate(oldComponent._id, component);
   console.log(`Updated component: ${component.name}`);
 }
@@ -668,5 +668,5 @@ async function updateBrands() {
 
 async function updateComponents() {
   console.log("Updating components");
-  components.forEach(component => componentUpdate(component));
+  await Promise.all(components.map(component => componentUpdate(component)));
 }

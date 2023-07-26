@@ -585,10 +585,10 @@ async function createComponents() {
       ""
     ),
     componentCreate(
-      "srock Z490 Phantom Gaming ITX/TB3",
+      "ASrock Z490 Phantom Gaming ITX/TB3",
       categories["Motherboard"],
       brands["ASRock"],
-      "Asrock Z490 Phantom Gaming ITX/TB3 Supports 10 th Gen and Future Generation Intel Core Motherboard Processors (Socket 1200), Model Number: Z490 Phantom Gaming-ITX/TB3",
+      "ASrock Z490 Phantom Gaming ITX/TB3 Supports 10 th Gen and Future Generation Intel Core Motherboard Processors (Socket 1200), Model Number: Z490 Phantom Gaming-ITX/TB3",
       159.99,
       ""
     ),

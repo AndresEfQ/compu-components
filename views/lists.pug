@@ -2,8 +2,8 @@ extends layout
 
 block content 
 
-  div(class='container')
-    div(class="list-header d-flex justify-content-center align-items-center")
+  div(class='container list-container')
+    div(class="list-header d-flex justify-content-center align-items-center py-4")
       h1(class="list-title") #{title}
       button(type="button" class="btn btn-secondary list-add-element") Add #{singleTitle}
         <i class="bi bi-plus-square ms-2"></i>
@@ -15,7 +15,7 @@ block content
               img(src=item.element.imgUrl alt=item.element.name class="img-thumbnail list-img")
               div(class="list-item-info")
                 p(class="d-flex justify-content-between") #{item.element.name}
-                  span(class="badge text-bg-secondary me-4") #{item.quantity}
+                  span(class="badge text-bg-secondary me-2") #{item.quantity}
                 P #{item.element.description}
               button(class="btn btn-primary") Update 
                 <i class="bi bi-pencil"></i>

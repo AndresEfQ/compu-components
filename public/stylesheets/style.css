@@ -44,7 +44,8 @@
   text-align: center;
   position: absolute;
   left: 50%;
-  transform: translate(-50%, 0%);
+  top: 54%;
+  transform: translate(-50%, -50%);
 }
 
 .hero {
@@ -55,12 +56,17 @@
   line-height: 6.5rem;
 }
 
-.list {
-  overflow: scroll;
+.list-container {
   height: 80vh;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 7px;;
+}
+
+.list {
+  overflow-y: scroll;
+  height: 85%;
   width: 100%;
   text-align: start;
- /*  background-color: transparent; */
 }
 
 .list-item-info {
@@ -77,13 +83,17 @@
   width: 100px;
 }
 
-.list-group-item {
-  background-color: rgba(255,255,255,0.9);
-}
-
 .list-add-element {
   position: absolute;
   right: 40px;
+}
+
+.list-group {
+  max-height: 100%;
+}
+
+.list-group-item {
+  background-color: rgba(255,255,255,0.5);
 }
 
 .footer {
