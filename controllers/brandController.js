@@ -36,9 +36,10 @@ exports.brand_delete_post = (req, res, next) => {
 };
 
 // Brand detail
-exports.brand_detail = (req, res, next) => {
-  res.send(`brand detail not implemented for ${req.params.id}`);
-};
+exports.brand_detail = asyncHandler(async(req, res, next) => {
+  const brandComponents = await Component.find({brand: req.params.id}).exec();
+  res.render('lists', {title: req.params.id.toUpperCase(), list: brandComponents, singleTitle: "Component"});
+});
 
 // Brands list
 exports.brand_list = asyncHandler(async(req, res, next) => {
