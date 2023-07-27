@@ -37,8 +37,12 @@ exports.brand_delete_post = (req, res, next) => {
 
 // Brand detail
 exports.brand_detail = asyncHandler(async(req, res, next) => {
+  const brand = await Brand.findById(req.params.id).exec();
   const brandComponents = await Component.find({brand: req.params.id}).exec();
-  res.render('lists', {title: req.params.id.toUpperCase(), list: brandComponents, singleTitle: "Component"});
+  const wrappedComponents = brandComponents.map(e => {
+    return {element: e}
+  });
+  res.render('lists', {title: brand.name.toUpperCase(), list: wrappedComponents, singleTitle: "Component", url: "brand"});
 });
 
 // Brands list
@@ -56,5 +60,5 @@ exports.brand_list = asyncHandler(async(req, res, next) => {
     })
   }
   console.log(countedBrands);
-  res.render('lists', {title: 'BRANDS', list: countedBrands, singleTitle: "Brand"});
+  res.render('lists', {title: 'BRANDS', list: countedBrands, singleTitle: "Brand", url: "brand"});
 });

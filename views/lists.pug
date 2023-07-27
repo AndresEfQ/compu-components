@@ -5,22 +5,24 @@ block content
   div(class='container list-container')
     div(class="list-header d-flex justify-content-center align-items-center py-4")
       h1(class="list-title") #{title}
-      button(type="button" class="btn btn-secondary list-add-element") Add #{singleTitle}
+      button(type="button" class="col-2 btn btn-success list-add-element") Add #{singleTitle}
         <i class="bi bi-plus-square ms-2"></i>
 
     div(class="list")
       ul(class="list-group")
         each item in list 
-          li(class="list-group-item d-flex justify-content-between align-items-center")  
-              img(src=item.element.imgUrl alt=item.element.name class="img-thumbnail list-img")
+          li(class="list-group-item d-flex justify-content-between align-items-center gap-4 row")
+            a(href=item.element.url class="list-group-item d-flex align-items-center justify-content-around col-10")
+              img(src=item.element.imgUrl alt=item.element.name class="img-thumbnail list-img me-4")
               div(class="list-item-info")
                 p(class="d-flex justify-content-between") #{item.element.name}
                   span(class="badge text-bg-secondary me-2") #{item.quantity}
                 P #{item.element.description}
-              button(class="btn btn-primary") Update 
+            div(class="col d-flex flex-column align-items-center justify-content-center gap-4")
+              a(class="btn btn-primary" href=item.element.url + "/update") Update 
                 <i class="bi bi-pencil"></i>
-              button(class="btn btn-primary") Delete 
+              a(class="btn btn-primary") Delete 
                 <i class="bi bi-trash3"></i>
-            
+          hr(class="my-2")
         else 
           p There are no #{title}

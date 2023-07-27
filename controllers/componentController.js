@@ -48,11 +48,7 @@ exports.component_detail = (req, res, next) => {
 // Must wrap the components in wrappedComponents to use the same view as brands and categories
 exports.component_list = asyncHandler(async(req, res, next) => {
   const allComponents = await Component.find().exec();
-  const wrappedComponents = [];
-  for (let i = 0; i < allComponents.length; i++) {
-    wrappedComponents.push({
-      element: allComponents[i], 
-    })
-  }
-  res.render('lists', {title: 'COMPONENTS', list: wrappedComponents, singleTitle: "Component"});
+  const wrappedComponents = allComponents.map(c => {
+    return {element: c}});
+  res.render('lists', {title: 'COMPONENTS', list: wrappedComponents, singleTitle: "Comp"});
 });

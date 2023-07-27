@@ -12,7 +12,7 @@ const ComponentSchema = new Schema({
 
 // Virtual for component's url
 ComponentSchema.virtual('url').get(function () {
-  return `catalog/component/${this._id}`;
+  return `/catalog/component/${this._id}`;
 });
 
 // Export model

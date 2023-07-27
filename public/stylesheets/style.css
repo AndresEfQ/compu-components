@@ -27,7 +27,7 @@
   color: white;
   position: absolute;
   bottom: 40px;
-  right: 300px;
+  right: 200px;
 }
 
 .img-copyright a {
@@ -70,7 +70,7 @@
 }
 
 .list-item-info {
-  width: 60%;
+  width: 75%;
 }
 
 .list-item-info p:first-child {
@@ -80,7 +80,7 @@
 
 .list-img {
   height: 100px;
-  width: 100px;
+  width: 120px;
 }
 
 .list-add-element {

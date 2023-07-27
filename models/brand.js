@@ -9,7 +9,7 @@ const BrandShema = new Schema({
 
 // Virtual for brand's url
 BrandShema.virtual('url').get(function () {
-  return `catalog/brand/${this._id}`;
+  return `/catalog/brand/${this._id}`;
 });
 
 // Export model
