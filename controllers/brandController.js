@@ -7,7 +7,7 @@ const Component = require('../models/component');
 
 // Create brand GET
 exports.brand_create_get = (req, res, next) => {
-  res.render('create-brand');
+  res.render('create-brand', {formTitle: "CREATE BRAND", action: "/catalog/brand/create"});
 };
 
 // Create brand POST
