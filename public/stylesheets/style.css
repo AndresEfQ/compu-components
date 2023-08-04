@@ -56,7 +56,7 @@
   line-height: 6.5rem;
 }
 
-.list-container {
+.list-container, .component-container {
   height: 80vh;
   background-color: rgba(255,255,255,0.6);
   border-radius: 7px;;
@@ -64,6 +64,7 @@
 
 .list {
   overflow-y: scroll;
+  overflow-x: hidden;
   height: 85%;
   width: 100%;
   text-align: start;
@@ -94,6 +95,32 @@
 
 .list-group-item {
   background-color: rgba(255,255,255,0.5);
+}
+
+.component-description {
+  text-align: start;
+  font-size: 1.3rem;
+}
+
+.create-brand-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.create-brand-form h1 {
+  color: white;
+  margin-bottom: 2.5rem;
+}
+
+.pic-label {
+  color: white;
+  width: 100%;
+  text-align: start;
+}
+
+.create-brand-form button {
+  align-self: center;
 }
 
 .footer {

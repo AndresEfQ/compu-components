@@ -1,0 +1,19 @@
+extends layout 
+
+block content 
+
+  div(class="container create-brand-form")
+    - let formTitle = brand ? `UPDATE ${brand}` : "CREATE BRAND"
+    h1 #{formTitle}
+    form(method="post" action="/catalog/brand/create")
+      div(class="form-floating mb-3")
+        input(type="text" class="form-control" id="name" placeholder="Brand Name")
+        label(for="name" class="form-label") Brand Name
+      div(class="form-floating mb-3")
+        textarea(class="form-control" id="description")
+        label(for="description" class="form-label") Description
+      div(class="mb-3")
+        label(for="formFile" class="form-label pic-label") Brand Picture
+        input(class="form-control" type="file" id="formFile")
+      
+      button(type="submit" class="btn btn-primary") Submit

@@ -1,0 +1,14 @@
+extends layout 
+
+block content 
+
+  div(class='component-container d-flex flex-column justify-content-evenly align-items-center')
+    h1 #{component.name}
+    img(class='col-6' src=component.imgUrl)
+    p(class='col-10 component-description') #{component.description}
+    span Price $#{component.price}
+    div(class="d-flex align-items-center justify-content-center gap-4")
+      a(class="btn btn-primary" href=component.url + "/update") Update 
+        <i class="bi bi-pencil"></i>
+      a(class="btn btn-primary" href=component.url + "/delete") Delete 
+        <i class="bi bi-trash3"></i>

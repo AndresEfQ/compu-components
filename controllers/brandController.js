@@ -7,7 +7,7 @@ const Component = require('../models/component');
 
 // Create brand GET
 exports.brand_create_get = (req, res, next) => {
-  res.send('Create brand not implemented on GET');
+  res.render('create-brand');
 };
 
 // Create brand POST
@@ -42,7 +42,7 @@ exports.brand_detail = asyncHandler(async(req, res, next) => {
   const wrappedComponents = brandComponents.map(e => {
     return {element: e}
   });
-  res.render('lists', {title: brand.name.toUpperCase(), list: wrappedComponents, singleTitle: "Component", url: "brand"});
+  res.render('lists', {title: brand.name.toUpperCase(), list: wrappedComponents, singleTitle: "Component"});
 });
 
 // Brands list

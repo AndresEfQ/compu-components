@@ -5,13 +5,13 @@ block content
   div(class='container list-container')
     div(class="list-header d-flex justify-content-center align-items-center py-4")
       h1(class="list-title") #{title}
-      button(type="button" class="col-2 btn btn-success list-add-element") Add #{singleTitle}
+      a(type="button" class="col-2 btn btn-success list-add-element" href=`${url}/create`) Add #{singleTitle}
         <i class="bi bi-plus-square ms-2"></i>
 
     div(class="list")
       ul(class="list-group")
         each item in list 
-          li(class="list-group-item d-flex justify-content-between align-items-center gap-4 row")
+          li(class="list-group-item d-flex justify-content-between align-items-center row")
             a(href=item.element.url class="list-group-item d-flex align-items-center justify-content-around col-10")
               img(src=item.element.imgUrl alt=item.element.name class="img-thumbnail list-img me-4")
               div(class="list-item-info")
@@ -21,7 +21,7 @@ block content
             div(class="col d-flex flex-column align-items-center justify-content-center gap-4")
               a(class="btn btn-primary" href=item.element.url + "/update") Update 
                 <i class="bi bi-pencil"></i>
-              a(class="btn btn-primary") Delete 
+              a(class="btn btn-primary" href=item.element.url + "/delete") Delete 
                 <i class="bi bi-trash3"></i>
           hr(class="my-2")
         else 

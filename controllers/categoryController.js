@@ -37,8 +37,12 @@ exports.category_delete_post = (req, res, next) => {
 
 // Category detail
 exports.category_detail = asyncHandler(async(req, res, next) => {
+  const category = await Category.findById(req.params.id).exec();
   const categoryComponents = await Component.find({category: req.params.id}).exec();
-  res.render('lists', {title: req.params.id.toUpperCase(), list: categoryComponents, singleTitle: "Component"});
+  const wrappedCategories = categoryComponents.map((e) => {
+    return {element: e};
+  });
+  res.render('lists', {title: category.name, list: wrappedCategories, singleTitle: "Component"});
 });
 
 // Categories list
@@ -57,5 +61,5 @@ exports.category_list = asyncHandler(async(req, res, next) => {
     })
   }
   console.log(countedCategories);
-  res.render('lists', {title: 'CATEGORIES', list: countedCategories, singleTitle: "Category"});
+  res.render('lists', {title: 'CATEGORIES', list: countedCategories, singleTitle: "Category", url: "category"});
 });

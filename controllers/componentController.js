@@ -40,9 +40,10 @@ exports.component_delete_post = (req, res, next) => {
 };
 
 // Component detail
-exports.component_detail = (req, res, next) => {
-  res.send(`Component detail not implemented for ${req.params.id}`);
-};
+exports.component_detail = asyncHandler(async(req, res, next) => {
+  const component = await Component.findById(req.params.id);
+  res.render('component-detail', {component});
+});
 
 // Components list
 // Must wrap the components in wrappedComponents to use the same view as brands and categories
