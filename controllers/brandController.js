@@ -7,7 +7,7 @@ const Component = require('../models/component');
 
 // Create brand GET
 exports.brand_create_get = (req, res, next) => {
-  res.render('create-brand', {formTitle: "CREATE BRAND", action: "/catalog/brand/create"});
+  res.render('create-update-form', {formTitle: "CREATE BRAND", action: "/catalog/brand/create"});
 };
 
 // Create brand POST
@@ -16,9 +16,10 @@ exports.brand_create_post = (req, res, next) => {
 };
 
 // Update brand GET
-exports.brand_update_get = (req, res, next) => {
-  res.send(`Update brand not implemented on GET for ${req.params.id}`);
-};
+exports.brand_update_get = asyncHandler(async(req, res, next) => {
+  const brand = await Brand.findById(req.params.id);
+  res.render('create-update-form', {formTitle: `UPDATE ${brand.name}`, data: brand, action: `/catalog/brand/${req.params.id}/update`});
+});
 
 // Update brand POST
 exports.brand_update_post = (req, res, next) => {

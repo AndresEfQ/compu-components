@@ -7,7 +7,7 @@ const Component = require('../models/component');
 
 // Create category GET
 exports.category_create_get = (req, res, next) => {
-  res.send('Create category not implemented on GET');
+  res.render('create-update-form', {formTitle: "CREATE CATEGORY", action: "/catalog/category/create"});
 };
 
 // Create category POST
@@ -16,9 +16,10 @@ exports.category_create_post = (req, res, next) => {
 };
 
 // Update category GET
-exports.category_update_get = (req, res, next) => {
-  res.send(`Update category not implemented on GET for ${req.params.id}`);
-};
+exports.category_update_get = asyncHandler(async(req, res, next) => {
+  const category = await Category.findById(req.params.id);
+  res.render('create-update-form', {formTitle: `UPDATE ${category.name}`, data: category, action: `/catalog/category/${req.params.id}/update`});
+});
 
 // Update category POST
 exports.category_update_post = (req, res, next) => {

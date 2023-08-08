@@ -1,4 +1,6 @@
- .navbar {
+
+/* Nav bar */
+.navbar {
   padding: 2rem;
   background-color: #f5f3f4;
 }
@@ -17,6 +19,8 @@
   margin-right: 20px;
   font-size: 2rem;
 }
+
+/* Home */
 
 .home {
   max-height: 85vh;
@@ -55,6 +59,8 @@
   font-size: 3.5rem;
   line-height: 6.5rem;
 }
+
+/* Category, brand and components lists */
 
 .list-container, .component-container {
   height: 80vh;
@@ -97,10 +103,14 @@
   background-color: rgba(255,255,255,0.5);
 }
 
+/* Component detail */
+
 .component-description {
   text-align: start;
   font-size: 1.3rem;
 }
+
+/* Create brand form */
 
 .create-brand-form form {
   display: flex;
@@ -113,7 +123,8 @@
   margin-bottom: 2.5rem;
 }
 
-.pic-label {
+.white-label {
+  font-size: 1.2rem;
   color: white;
   width: 100%;
   text-align: start;
@@ -122,6 +133,8 @@
 .create-brand-form button {
   align-self: center;
 }
+
+/* Footer */
 
 .footer {
   position: absolute;
