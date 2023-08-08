@@ -11,9 +11,49 @@ exports.brand_create_get = (req, res, next) => {
 };
 
 // Create brand POST
-exports.brand_create_post = (req, res, next) => {
-  res.send('Create brand not implemented on POST');
-};
+exports.brand_create_post = [
+  
+  body('name')
+    .trim()
+    .notEmpty()
+    .escape()
+    .withMessage('Name must be specified'),
+
+  body('description')
+    .trim()
+    .notEmpty()
+    .escape()
+    .withMessage('Description must be specified'),
+
+  body('imgUrl')
+    .trim()
+    .notEmpty()
+    .escape()
+    .withMessage('Must have an image'),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    const brand = new Brand({
+      name: req.body.name,
+      description: req.body.description,
+      imgUrl: req.body.imgUrl,
+    });
+
+    if (!errors.isEmpty()) {
+      res.render('create-update-form', { 
+        formTitle: 'CREATE BRAND',
+        errors: errors.array(),
+        brand,
+      });
+      return;
+    } else {
+
+      await brand.save();
+      res.redirect(brand.url);
+    }
+  }),
+];
 
 // Update brand GET
 exports.brand_update_get = asyncHandler(async(req, res, next) => {
@@ -22,9 +62,48 @@ exports.brand_update_get = asyncHandler(async(req, res, next) => {
 });
 
 // Update brand POST
-exports.brand_update_post = (req, res, next) => {
-  res.send(`Update brand not implemented on POST for ${req.params.id}`);
-};
+exports.brand_update_post = body('name')
+    .trim()
+    .notEmpty()
+    .escape()
+    .withMessage('Name must be specified'),
+
+  body('description')
+    .trim()
+    .notEmpty()
+    .escape()
+    .withMessage('Description must be specified'),
+
+  body('imgUrl')
+    .trim()
+    .notEmpty()
+    .escape()
+    .withMessage('Must have an image'),
+
+  asyncHandler(async (req, res, next) => {
+    const errors = validationResult(req);
+
+    const brand = new Brand({
+      _id: req.params.id,
+      name: req.body.name,
+      description: req.body.description,
+      imgUrl: req.body.imgUrl,
+    });
+
+    if (!errors.isEmpty()) {
+      res.render('create-update-form', { 
+        formTitle: `UPDATE ${brand.name}`,
+        errors: errors.array(),
+        author,
+      });
+      return;
+    } else {
+
+      const updatedBrand = await brand.findByIdAndUpdate(req.params.id, brand, {});
+      res.redirect(updatedBrand.url);
+    }
+  }),
+];
 
 // Delete brand GET
 exports.brand_delete_get = (req, res, next) => {
