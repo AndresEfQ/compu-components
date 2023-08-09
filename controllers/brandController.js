@@ -1,6 +1,21 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
 const expressValidator = require('express-validator');
+const { body, validationResult } = require('express-validator');
+
+// multer file handling middleware
+const multer = require('multer');
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/images/')
+  },
+  filename: (req, file, cb) => {
+    const ext = file.originalname.split(".").at(-1);
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    cb(null, file.fieldname + "-" + uniqueSuffix + "." + ext);
+  }
+});
+const upload = multer({ storage: storage });
 
 const Brand = require('../models/brand');
 const Component = require('../models/component');
@@ -12,6 +27,8 @@ exports.brand_create_get = (req, res, next) => {
 
 // Create brand POST
 exports.brand_create_post = [
+
+  upload.single('imgUrl'),
   
   body('name')
     .trim()
@@ -25,13 +42,16 @@ exports.brand_create_post = [
     .escape()
     .withMessage('Description must be specified'),
 
-  body('imgUrl')
+  /* body('imgUrl')
     .trim()
     .notEmpty()
     .escape()
-    .withMessage('Must have an image'),
+    .withMessage('Must have an image'), */
 
   asyncHandler(async (req, res, next) => {
+
+    console.log(req.file);
+
     const errors = validationResult(req);
 
     const brand = new Brand({
@@ -41,6 +61,8 @@ exports.brand_create_post = [
     });
 
     if (!errors.isEmpty()) {
+      console.log("errors")
+      console.log(req.body);
       res.render('create-update-form', { 
         formTitle: 'CREATE BRAND',
         errors: errors.array(),
@@ -62,7 +84,9 @@ exports.brand_update_get = asyncHandler(async(req, res, next) => {
 });
 
 // Update brand POST
-exports.brand_update_post = body('name')
+exports.brand_update_post = [ 
+  
+  body('name')
     .trim()
     .notEmpty()
     .escape()
@@ -76,11 +100,10 @@ exports.brand_update_post = body('name')
 
   body('imgUrl')
     .trim()
-    .notEmpty()
-    .escape()
-    .withMessage('Must have an image'),
+    .escape(),
 
   asyncHandler(async (req, res, next) => {
+    console.log(body().name);
     const errors = validationResult(req);
 
     const brand = new Brand({
@@ -91,10 +114,11 @@ exports.brand_update_post = body('name')
     });
 
     if (!errors.isEmpty()) {
+      console.log(errors);
       res.render('create-update-form', { 
         formTitle: `UPDATE ${brand.name}`,
         errors: errors.array(),
-        author,
+        brand,
       });
       return;
     } else {
@@ -139,6 +163,5 @@ exports.brand_list = asyncHandler(async(req, res, next) => {
       quantity: count[i],
     })
   }
-  console.log(countedBrands);
   res.render('lists', {title: 'BRANDS', list: countedBrands, singleTitle: "Brand", url: "brand"});
 });
