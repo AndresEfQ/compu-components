@@ -1,7 +1,6 @@
 const express = require('express');
 const asyncHandler = require('express-async-handler');
-const expressValidator = require('express-validator');
-const { body, validationResult } = require('express-validator');
+const { check, body, validationResult } = require('express-validator');
 
 // multer file handling middleware
 const multer = require('multer');
@@ -17,6 +16,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage });
 
+// models
 const Brand = require('../models/brand');
 const Component = require('../models/component');
 
@@ -42,11 +42,15 @@ exports.brand_create_post = [
     .escape()
     .withMessage('Description must be specified'),
 
-  /* body('imgUrl')
-    .trim()
-    .notEmpty()
-    .escape()
-    .withMessage('Must have an image'), */
+  check('imgUrl')
+    .custom((value, {req}) => {
+      if (req.file.mimetype.split('/')[0] === "image") {
+        return "image";
+      } else {
+        return false;
+      }
+    })
+    .withMessage('Please upload an image file'),
 
   asyncHandler(async (req, res, next) => {
 
@@ -54,15 +58,17 @@ exports.brand_create_post = [
 
     const errors = validationResult(req);
 
+    let filePath = req.file.path.split("/");
+    filePath.shift();
+
     const brand = new Brand({
       name: req.body.name,
       description: req.body.description,
-      imgUrl: req.body.imgUrl,
+      imgUrl: "/" + filePath.join("/"),
     });
 
     if (!errors.isEmpty()) {
-      console.log("errors")
-      console.log(req.body);
+      console.log(errors)
       res.render('create-update-form', { 
         formTitle: 'CREATE BRAND',
         errors: errors.array(),
