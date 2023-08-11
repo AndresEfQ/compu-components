@@ -6,13 +6,13 @@ block content
     h1 #{formTitle}
     form(method="post" action='' enctype="multipart/form-data")
       div(class="form-floating mb-3")
-        input(type="text" class="form-control" id="name" name="name" placeholder="Brand Name" required)
+        input(type="text" class="form-control" id="name" name="name" placeholder="Brand Name" value=(data ? data.name : ""))
         label(for="name" class="form-label") Brand Name
       div(class="mb-3")
         label(for="description" class="form-label white-label") Description
-        textarea(class="form-control" id="description" name="description" rows="7" cols="33" required)
+        textarea(class="form-control" id="description" name="description" rows="7" cols="33" value=(data ? data.description : ""))
       img(src=(data ? data.imgUrl : "/images/image.svg") alt="component image" class="img-thumbnail list-img align-self-center")
       div(class="mb-3")
         label(for="imgUrl" class="form-label white-label") Brand Picture
-        input(class="form-control" type="file" id="imgUrl" name="imgUrl" required)
+        input(class="form-control" type="file" id="imgUrl" name="imgUrl")
       button(type="submit" class="btn btn-primary") Submit

@@ -1,19 +1,22 @@
 const express = require('express');
+const fs = require('fs');
 const asyncHandler = require('express-async-handler');
 const { check, body, validationResult } = require('express-validator');
 
 // multer file handling middleware
 const multer = require('multer');
 const storage = multer.diskStorage({
+
   destination: (req, file, cb) => {
-    cb(null, 'public/images/')
+    cb(null, 'public/images/tmp/')
   },
+
   filename: (req, file, cb) => {
-    const ext = file.originalname.split(".").at(-1);
     const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-    cb(null, file.fieldname + "-" + uniqueSuffix + "." + ext);
+    cb(null, file.fieldname + "-" + uniqueSuffix);
   }
 });
+
 const upload = multer({ storage: storage });
 
 // models
@@ -54,29 +57,35 @@ exports.brand_create_post = [
 
   asyncHandler(async (req, res, next) => {
 
-    console.log(req.file);
-
     const errors = validationResult(req);
-
-    let filePath = req.file.path.split("/");
-    filePath.shift();
 
     const brand = new Brand({
       name: req.body.name,
       description: req.body.description,
-      imgUrl: "/" + filePath.join("/"),
+      imgUrl: "/images/tmp/" + req.file.filename,
     });
-
+    
+    console.log(brand);
+    
     if (!errors.isEmpty()) {
       console.log(errors)
       res.render('create-update-form', { 
         formTitle: 'CREATE BRAND',
         errors: errors.array(),
-        brand,
+        data: brand,
       });
       return;
+
     } else {
 
+      /* fs.rename("/" + req.file.path, "/public/images/upload/" + req.file.filename, (err) => {
+        if (err) {
+          next(err);
+        }
+      }); */
+
+      brand.imgUrl = "/images/upload/" + req.file.filename;
+      console.log(brand);
       await brand.save();
       res.redirect(brand.url);
     }
