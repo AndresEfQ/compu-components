@@ -62,6 +62,11 @@
 
 /* Category, brand and components lists */
 
+li {
+  list-style: none;
+  text-align: start;
+}
+
 .list-container, .component-container {
   height: 80vh;
   min-width: 45vw;
@@ -121,6 +126,7 @@
 
 .create-brand-form h1 {
   color: white;
+  text-shadow: 0 0 11px black;
   margin-bottom: 2.5rem;
 }
 

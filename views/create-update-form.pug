@@ -7,12 +7,19 @@ block content
     form(method="post" action='' enctype="multipart/form-data")
       div(class="form-floating mb-3")
         input(type="text" class="form-control" id="name" name="name" placeholder="Brand Name" value=(data ? data.name : ""))
-        label(for="name" class="form-label") Brand Name
-      div(class="mb-3")
+        label(for="name" class="form-label") Name
+      div
         label(for="description" class="form-label white-label") Description
-        textarea(class="form-control" id="description" name="description" rows="7" cols="33" value=(data ? data.description : ""))
+        textarea(class="form-control" id="description" name="description" rows="7" cols="33") #{data ? data.description : ""}
       img(src=(data ? data.imgUrl : "/images/image.svg") alt="component image" class="img-thumbnail list-img align-self-center")
-      div(class="mb-3")
-        label(for="imgUrl" class="form-label white-label") Brand Picture
+      div
+        label(for="imgUrl" class="form-label white-label") Picture
         input(class="form-control" type="file" id="imgUrl" name="imgUrl")
+
+        if errors 
+          ul
+            for error in errors 
+              li(class="text-danger")!=error.msg
+
       button(type="submit" class="btn btn-primary") Submit
+
