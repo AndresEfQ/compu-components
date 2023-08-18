@@ -23,9 +23,10 @@ const upload = multer({
     const ext = path.extname(file.originalname);
     const allowedExt = ['.png', '.jpg', '.gif', '.jpeg'];
     if (!allowedExt.includes(ext)) {
-      cb(new Error('Only images are allowed'))
+      cb(null, false);
+      return;
     }
-    cb(null, true)
+    cb(null, true);
   },
 });
 
@@ -57,7 +58,9 @@ exports.brand_create_post = [
 
   check('imgUrl')
     .custom((value, {req}) => {
-      
+      if (!req.file) {
+        return "Already validated";
+      }
       if (req.file.mimetype.split('/')[0] === "image") {
         return "image";
       } else {
@@ -75,11 +78,8 @@ exports.brand_create_post = [
       description: req.body.description,
       imgUrl: req.file ? "/images/uploads/" + req.file.filename : "",
     });    
-
-    console.log(brand);
     
     if (!errors.isEmpty()) {
-      console.log(errors)
       res.render('create-update-form', { 
         formTitle: 'CREATE BRAND',
         errors: errors.array(),
@@ -132,26 +132,26 @@ exports.brand_update_post = [
 
     const errors = validationResult(req);
 
-    const brand = new Brand({
+    const brand = await Brand.findById(req.params.id);
+
+    const newBrand = new Brand({
       _id: req.params.id,
       name: req.body.name,
       description: req.body.description,
-      imgUrl: req.file ? "/images/uploads/" + req.file.filename : "",
+      imgUrl: req.file ? "/images/uploads/" + req.file.filename : brand.imgUrl,
     });
 
     if (!errors.isEmpty()) {
-      console.log(errors);
       res.render('create-update-form', { 
-        formTitle: `UPDATE ${brand.name}`,
+        formTitle: `UPDATE ${newBrand.name}`,
         errors: errors.array(),
-        data: brand,
+        data: newBrand,
       });
       return;
 
     } else {
 
-      console.log(brand.findByIdAndReplace);
-      const updatedBrand = await Brand.findByIdAndUpdate(req.params.id, brand, {});
+      const updatedBrand = await Brand.findByIdAndUpdate(req.params.id, newBrand, {});
       res.redirect(updatedBrand.url);
     }
   }),

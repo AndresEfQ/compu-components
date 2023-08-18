@@ -6,7 +6,7 @@ block content
     h1 #{formTitle}
     form(method="post" action='' enctype="multipart/form-data")
       div(class="form-floating mb-3")
-        input(type="text" class="form-control" id="name" name="name" placeholder="Brand Name" value=(data ? data.name : ""))
+        input(type="text" class="form-control" id="name" name="name" placeholder="Name" value=(data ? data.name : ""))
         label(for="name" class="form-label") Name
       div
         label(for="description" class="form-label white-label") Description

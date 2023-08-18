@@ -51,5 +51,5 @@ exports.component_list = asyncHandler(async(req, res, next) => {
   const allComponents = await Component.find().exec();
   const wrappedComponents = allComponents.map(c => {
     return {element: c}});
-  res.render('lists', {title: 'COMPONENTS', list: wrappedComponents, singleTitle: "Comp"});
+  res.render('lists', {title: 'COMPONENTS', list: wrappedComponents, singleTitle: "Comp", url: "component"});
 });
