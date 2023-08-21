@@ -4,9 +4,20 @@ block content
 
   div(class='component-container d-flex flex-column justify-content-evenly align-items-center')
     h1 #{component.name}
-    img(class='col-6' src=component.imgUrl)
+    img(class='col-5' src=component.imgUrl)
     p(class='col-10 component-description') #{component.description}
     span Price $#{component.price}
+    div(class="container col-9")
+      table(class="table")
+        tbody 
+          tr
+            td Category 
+            td 
+              a(href=component.category.url) #{component.category.name}
+          tr 
+            td Brand 
+            td
+              a(href=component.brand.url) #{component.brand.name}
     div(class="d-flex align-items-center justify-content-center gap-4")
       a(class="btn btn-primary" href=component.url + "/update") Update 
         <i class="bi bi-pencil"></i>

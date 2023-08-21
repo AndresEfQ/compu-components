@@ -21,7 +21,6 @@
 }
 
 /* Home */
-
 .home {
   max-height: 85vh;
   overflow-y: hidden;
@@ -61,7 +60,6 @@
 }
 
 /* Category, brand and components lists */
-
 li {
   list-style: none;
   text-align: start;
@@ -110,21 +108,18 @@ li {
 }
 
 /* Component detail */
-
 .component-description {
   text-align: start;
   font-size: 1.3rem;
 }
 
 /* Create brand form */
-
-.create-brand-form form {
+.cu-container {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
 }
 
-.create-brand-form h1 {
+.cu-container h1 {
   color: white;
   text-shadow: 0 0 11px black;
   margin-bottom: 2.5rem;
@@ -137,12 +132,11 @@ li {
   text-align: start;
 }
 
-.create-brand-form button {
+.cu-container button {
   align-self: center;
 }
 
 /* Footer */
-
 .footer {
   position: absolute;
   bottom: 0;

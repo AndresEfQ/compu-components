@@ -1,0 +1,54 @@
+extends layout 
+
+block content 
+
+  div(class="container cu-container")
+    h1 #{formTitle}
+    form(method="post" action='' enctype="multipart/form-data")
+
+      div(class="form-floating mb-2")
+        input(type="text" class="form-control" id="name" name="name" placeholder="Component Name" value=(component ? component.name : ""))
+        label(for="name" class="form-label") Name
+
+      div
+        label(for="name" class="form-label white-label") Category 
+        select(type="select" class="form-control mb-2" id="category" name="category" placeholder="Select Category")
+          option(value="" disabled selected) Select Category
+          - categories.sort((a, b) => {return a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1});
+          for category in categories 
+            if component && component.category
+              option(value=category._id selected=(category._id.toString()===component.category._id.toString() ? 'selected' : false)) #{category.name}
+            else
+              option(value=category._id) #{category.name}
+
+      div
+        label(for="name" class="form-label white-label") Brand
+        select(type="select" class="form-control mb-2" id="brand" name="brand")
+          option(value="" selected) Select Brand
+          - brands.sort((a, b) => {return a.name.toUpperCase() > b.name.toUpperCase() ? 1 : -1});
+          for brand in brands 
+            if component && component.brand
+              option(value=brand._id selected=(brand._id.toString()===component.brand._id.toString() ? 'selected' : false)) #{brand.name}
+            else
+              option(value=brand._id) #{brand.name}
+      
+      div
+        label(for="description" class="form-label white-label") Description
+        textarea(class="form-control mb-2" id="description" name="description" rows="6" cols="33") #{component ? component.description : ""}
+      
+      div(class="form-floating mb-2")
+        input(type="text" class="form-control" id="price" name="price" placeholder="Component Price" value=(component ? component.price : ""))
+        label(for="name" class="form-label") Price
+      
+      img(src=(component ? component.imgUrl : "/images/image.svg") alt="component image" class="img-thumbnail list-img align-self-center")
+      
+      div
+        label(for="imgUrl" class="form-label white-label") Picture
+        input(class="form-control mb-2" type="file" id="imgUrl" name="imgUrl")
+
+        if errors 
+          ul
+            for error in errors 
+              li(class="text-danger")!=error.msg
+
+      button(type="submit" class="btn btn-primary") Submit

@@ -57,7 +57,6 @@ exports.category_create_post = [
 
   check('imgUrl')
     .custom((value, {req}) => {
-      
       if (req.file.mimetype.split('/')[0] === "image") {
         return "image";
       } else {
@@ -168,8 +167,10 @@ exports.category_delete_post = (req, res, next) => {
 
 // Category detail
 exports.category_detail = asyncHandler(async(req, res, next) => {
-  const category = await Category.findById(req.params.id).exec();
-  const categoryComponents = await Component.find({category: req.params.id}).exec();
+  const [category, categoryComponents] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Component.find({category: req.params.id}).exec(),
+  ])
   const wrappedCategories = categoryComponents.map((e) => {
     return {element: e};
   });
@@ -179,7 +180,6 @@ exports.category_detail = asyncHandler(async(req, res, next) => {
 // Categories list
 exports.category_list = asyncHandler(async(req, res, next) => {
   const allCategories = await Category.find().exec();
-  console.log(allCategories);
   const count = await Promise.all(allCategories.map(async(category) => {
     const num = await Component.countDocuments({category: category.id})
     return num;

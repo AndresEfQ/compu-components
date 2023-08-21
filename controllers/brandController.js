@@ -6,7 +6,6 @@ const { check, body, validationResult } = require('express-validator');
 // multer file handling middleware
 const multer = require('multer');
 const storage = multer.diskStorage({
-
   destination: (req, file, cb) => {
     cb(null, 'public/images/uploads/')
   },
@@ -58,9 +57,6 @@ exports.brand_create_post = [
 
   check('imgUrl')
     .custom((value, {req}) => {
-      if (!req.file) {
-        return "Already validated";
-      }
       if (req.file.mimetype.split('/')[0] === "image") {
         return "image";
       } else {
@@ -102,7 +98,7 @@ exports.brand_update_get = asyncHandler(async(req, res, next) => {
 });
 
 // Update brand POST
-exports.brand_update_post = [ 
+exports.brand_update_post = [
 
   upload.single('imgUrl'),
   
@@ -158,19 +154,46 @@ exports.brand_update_post = [
 ];
 
 // Delete brand GET
-exports.brand_delete_get = (req, res, next) => {
-  res.send(`Delete brand not implemented on GET for ${req.params.id}`);
-};
+exports.brand_delete_get = asyncHandler(async(req, res, next) => {
+
+  const [brand, allComponentsOfBrand] = await Promise.all([
+    Brand.findById(req.params.id).exec(),
+    Component.find({brand: req.params.id}).exec(),
+  ])
+
+  res.render('delete-brand-form', {
+    formTitle: `DELETE ${brand.name.toUpperCase()}`,
+    brand,
+    allComponentsOfBrand,
+  });
+});
 
 // Delete brand POST
-exports.brand_delete_post = (req, res, next) => {
-  res.send( `Delete brand not implemented on POST for id ${req.params.id}`);
-};
+exports.brand_delete_post = asyncHandler(async(req, res, next) => {
+  const [brand, allComponentsOfBrand] = await Promise.all([
+    Brand.findById(req.params.id).exec(),
+    Component.find({brand: req.params.id}).exec(),
+  ]);
+
+  if (allComponentsOfBrand.length > 0) {
+    console.log("this brand isn't empty");
+    res.render('delete-brand-form', {
+      formTitle: `DELETE ${brand.name.toUpperCase()}`,
+      brand,
+      allComponentsOfBrand,
+    })
+  } else {
+    await Brand.findByIdAndDelete(req.params.id);
+    res.redirect('/catalog/brands');
+  }
+});
 
 // Brand detail
 exports.brand_detail = asyncHandler(async(req, res, next) => {
-  const brand = await Brand.findById(req.params.id).exec();
-  const brandComponents = await Component.find({brand: req.params.id}).exec();
+  const [brand, brandComponents] = await Promise.all([
+    Brand.findById(req.params.id).exec(),
+    Component.find({brand: req.params.id}).exec(),
+  ])
   const wrappedComponents = brandComponents.map(e => {
     return {element: e}
   });
