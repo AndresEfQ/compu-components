@@ -189,7 +189,6 @@ exports.component_update_post = [
   asyncHandler(async (req, res, next) => {
 
     const errors = validationResult(req);
-    console.log(req.body);
 
     const component = new Component({
       name: req.body.name,
@@ -224,14 +223,47 @@ exports.component_update_post = [
 ];
 
 // Delete component GET
-exports.component_delete_get = (req, res, next) => {
-  res.send(`Delete component not implemented on GET for ${req.params.id}`);
-};
+exports.component_delete_get = asyncHandler(async(req, res, next) => {
+
+  const component = await Component.findById(req.params.id);
+
+  res.render('delete-component-form', {
+    formTitle: `DELETE ${component.name.toUpperCase()}`,
+    component,
+  });
+});
 
 // Delete component POST
-exports.component_delete_post = (req, res, next) => {
-  res.send( `Delete component not implemented on POST for id ${req.params.id}`);
-};
+exports.component_delete_post =[
+
+  body('password')
+    .custom((value, {req}) => {
+      if (req.body.password === 'CRUD') {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .withMessage('Incorrect password'),
+  
+  asyncHandler(async(req, res, next) => {
+
+    const errors = validationResult(req);
+    const component = await Component.findById(req.params.id);
+
+    if (!errors.isEmpty()) {
+      res.render('delete-component-form', {
+        formTitle: `DELETE ${component.name.toUpperCase()}`,
+        component,
+        errors: errors.array(),
+      });
+    } else {
+
+      await Component.findByIdAndDelete(req.body.component);
+      res.redirect('/catalog/components');
+    }
+  }),
+]; 
 
 // Component detail
 exports.component_detail = asyncHandler(async(req, res, next) => {

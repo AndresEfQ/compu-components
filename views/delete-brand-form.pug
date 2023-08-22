@@ -25,7 +25,16 @@ block content
           li(class="list-group-item d-flex justify-content-center align-items-center row")
             p(class="list-group-item d-flex align-items-center justify-content-center") Are you sure you want to delete #{brand.name}?
 
-            form(class="d-flex justify-content-center" method='POST' action='')
-              input(type='hidden' value=brand._id name='brand')
-              button(class="btn btn-primary justify-self-center" type='submit') Delete 
-                <i class="bi bi-trash3"></i>
+            form(class="d-flex flex-column align-items-center justify-content-center" method='POST' action='')
+              input(type='hidden' value=brand._id name='brand') 
+              div(class='col-5')
+                label(for="password" class="form-label") Password
+                input(type='text' class='form-control' id='password' name='password' placeholder='You need a password to delete elements')
+            
+              if errors 
+                ul
+                  for error in errors 
+                    li(class="text-danger")!=error.msg
+
+              button(class='btn btn-primary justify-self-center my-3' type='submit') Delete 
+                <i class='bi bi-trash3'></i>

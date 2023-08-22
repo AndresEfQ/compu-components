@@ -156,14 +156,61 @@ exports.category_update_post = [
 ];
 
 // Delete category GET
-exports.category_delete_get = (req, res, next) => {
-  res.send(`Delete category not implemented on GET for ${req.params.id}`);
-};
+exports.category_delete_get = asyncHandler(async(req, res, next) => {
+
+  const [category, allComponentsOfCategory] = await Promise.all([
+    Category.findById(req.params.id).exec(),
+    Component.find({category: req.params.id}).exec(),
+  ])
+
+  res.render('delete-category-form', {
+    formTitle: `DELETE ${category.name.toUpperCase()}`,
+    category,
+    allComponentsOfCategory,
+  });
+});
 
 // Delete category POST
-exports.category_delete_post = (req, res, next) => {
-  res.send( `Delete category not implemented on POST for id ${req.params.id}`);
-};
+exports.category_delete_post = [
+  
+  body('password')
+    .custom((value, {req}) => {
+      if (req.body.password === 'CRUD') {
+        return true;
+      } else {
+        return false;
+      }
+    })
+    .withMessage('Incorrect password'),
+
+  asyncHandler(async(req, res, next) => {
+
+    const errors = validationResult(req);
+    const [category, allComponentsOfCategory] = await Promise.all([
+      Category.findById(req.params.id).exec(),
+      Component.find({category: req.params.id}).exec(),
+    ]);
+
+    if (allComponentsOfCategory.length > 0) {
+      console.log("this category isn't empty");
+      res.render('delete-category-form', {
+        formTitle: `DELETE ${category.name.toUpperCase()}`,
+        category,
+        allComponentsOfCategory,
+      })
+    } else if (!errors.isEmpty()){
+      res.render('delete-category-form', {
+        formTitle: `DELETE ${category.name.toUpperCase()}`,
+        category,
+        allComponentsOfCategory,
+        errors: errors.array(),
+      });
+    } else {
+      await Category.findByIdAndDelete(req.params.id);
+      res.redirect('/catalog/categories');
+    }
+  }),
+];
 
 // Category detail
 exports.category_detail = asyncHandler(async(req, res, next) => {

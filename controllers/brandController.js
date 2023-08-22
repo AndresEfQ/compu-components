@@ -169,24 +169,45 @@ exports.brand_delete_get = asyncHandler(async(req, res, next) => {
 });
 
 // Delete brand POST
-exports.brand_delete_post = asyncHandler(async(req, res, next) => {
-  const [brand, allComponentsOfBrand] = await Promise.all([
-    Brand.findById(req.params.id).exec(),
-    Component.find({brand: req.params.id}).exec(),
-  ]);
+exports.brand_delete_post = [
 
-  if (allComponentsOfBrand.length > 0) {
-    console.log("this brand isn't empty");
-    res.render('delete-brand-form', {
-      formTitle: `DELETE ${brand.name.toUpperCase()}`,
-      brand,
-      allComponentsOfBrand,
+  body('password')
+    .custom((value, {req}) => {
+      if (req.body.password === 'CRUD') {
+        return true;
+      } else {
+        return false;
+      }
     })
-  } else {
-    await Brand.findByIdAndDelete(req.params.id);
-    res.redirect('/catalog/brands');
-  }
-});
+    .withMessage('Incorrect password'),
+
+  asyncHandler(async(req, res, next) => {
+
+    const errors = validationResult(req);
+    const [brand, allComponentsOfBrand] = await Promise.all([
+      Brand.findById(req.params.id).exec(),
+      Component.find({brand: req.params.id}).exec(),
+    ]);
+
+    if (allComponentsOfBrand.length > 0) {
+      res.render('delete-brand-form', {
+        formTitle: `DELETE ${brand.name.toUpperCase()}`,
+        brand,
+        allComponentsOfBrand,
+      })
+    } else if (!errors.isEmpty()) {
+      res.render('delete-brand-form', {
+        formTitle: `DELETE ${brand.name.toUpperCase()}`,
+        brand,
+        allComponentsOfBrand,
+        errors: errors.array(),
+      })
+    } else {
+      await Brand.findByIdAndDelete(req.params.id);
+      res.redirect('/catalog/brands');
+    }
+  }),
+]
 
 // Brand detail
 exports.brand_detail = asyncHandler(async(req, res, next) => {
