@@ -80,36 +80,6 @@ const brands = [
     imgUrl: "/images/uploads/galax.png",
   },
   {
-    name: "PNY", 
-    description: "PNY is an American company that makes graphics cards, flash memory cards, flash drives, chargers, adapters, and other accessories. PNY makes both gaming and workstation graphics cards for Nvidia.",
-    imgUrl: "/images/uploads/pny.png",
-  },
-  {
-    name: "Palit", 
-    description: "Palit is a graphics card manufacturer that mainly makes Nvidia Graphics Cards. It is a fairly popular brand and offers some cheap graphics cards.",
-    imgUrl: "/images/uploads/palit.jpg",
-  },
-  {
-    name: "PowerColor", 
-    description: "PowerColor is an AMD Radeon Graphics Cards manufacturer from Taiwan. It is a good brand and if you are looking for an AMD Graphics Card then PowerColor is one of the best.",
-    imgUrl: "/images/uploads/PowerColor.png",
-  },
-  {
-    name: "Sapphire", 
-    description: "Sapphire also makes AMD Graphics Cards. It offers AMD Radeon graphics cards from all ranges including budget, mid-range, and high-end graphics cards. Sapphire is one of the most popular brands for AMD Radeon graphics cards.",
-    imgUrl: "/images/uploads/Sapphire.png",
-  },
-  {
-    name: "Inno3D", 
-    description: "Inno3D is a Chinese manufacturer of Nvidia Graphics Cards. Their graphics cards offer good performance but they are a bit hard to find because of availability issues.",
-    imgUrl: "/images/uploads/inno3d.png",
-  },
-  {
-    name: "XFX", 
-    description: "XFX used to make Nvidia graphics cards previously but it is no longer an official Nvidia Partner and now it only makes AMD Graphics Cards. XFX Graphics Cards are pretty good and offer great performance and features.",
-    imgUrl: "/images/uploads/xfx.jpg",
-  },
-  {
     name: "HIS", 
     description: "HIS is a graphics card manufacturer that makes AMD Radeon Graphics Cards.",
     imgUrl: "/images/uploads/his.png",

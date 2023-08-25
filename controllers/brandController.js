@@ -203,6 +203,7 @@ exports.brand_delete_post = [
         errors: errors.array(),
       })
     } else {
+      fs.unlink('./public' + brand.imgUrl);
       await Brand.findByIdAndDelete(req.params.id);
       res.redirect('/catalog/brands');
     }

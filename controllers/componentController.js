@@ -258,7 +258,7 @@ exports.component_delete_post =[
         errors: errors.array(),
       });
     } else {
-
+      fs.unlink('./public' + component.imgUrl);
       await Component.findByIdAndDelete(req.body.component);
       res.redirect('/catalog/components');
     }

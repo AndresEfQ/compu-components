@@ -206,6 +206,7 @@ exports.category_delete_post = [
         errors: errors.array(),
       });
     } else {
+      fs.unlink('./public' + category.imgUrl);
       await Category.findByIdAndDelete(req.params.id);
       res.redirect('/catalog/categories');
     }
